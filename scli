@@ -728,7 +728,8 @@ class Signal:
 
     def groups(self):
         # Need to filter out any groups that where "active" == false
-        return list(filter(lambda a: bool(a['active']),
+        #print(self._data["groupStore"]['groups'])
+        return list(filter(lambda a: not bool(a['archived']),
                     (filter(lambda n: bool(n['name']),
                      self._data["groupStore"]['groups']))))
 
